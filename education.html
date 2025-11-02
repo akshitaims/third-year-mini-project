@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Disaster Education Modules</title>
+  <link rel="stylesheet" href="education.css" />
+</head>
+<body>
+  <header>
+    <h1>Disaster Preparedness Learning Modules</h1>
+    <p>Learn how to stay safe during different types of disasters.</p>
+    <a href="index.html" class="back-btn">← Back to Home</a>
+  </header>
+
+  <main>
+    <section class="module-container">
+      <!-- Earthquake Module -->
+      <div class="card">
+        <img src="images/earthquake.jpg" alt="Earthquake">
+        <h2>Earthquake Preparedness</h2>
+        <p>Learn how to protect yourself during an earthquake and what to do before and after.</p>
+        <button class="learn-btn" onclick="openModule('earthquake')">Learn More</button>
+      </div>
+
+      <!-- Flood Module -->
+      <div class="card">
+        <img src="images/flood.jpg" alt="Flood">
+        <h2>Flood Safety</h2>
+        <p>Understand how to stay safe in flood-prone areas and how to act during flash floods.</p>
+        <button class="learn-btn" onclick="openModule('flood')">Learn More</button>
+      </div>
+
+      <!-- Fire Module -->
+      <div class="card">
+        <img src="images/fire.jpg" alt="Fire">
+        <h2>Fire Safety</h2>
+        <p>Discover fire safety rules and how to evacuate safely during a fire.</p>
+        <button class="learn-btn" onclick="openModule('fire')">Learn More</button>
+      </div>
+
+      <!-- Cyclone Module -->
+      <div class="card">
+        <img src="images/cyclone.jpg" alt="Cyclone">
+        <h2>Cyclone Preparedness</h2>
+        <p>Be ready for strong winds and heavy rain with cyclone preparedness techniques.</p>
+        <button class="learn-btn" onclick="openModule('cyclone')">Learn More</button>
+      </div>
+    </section>
+  </main>
+
+  <!-- Popup Modal -->
+  <div id="moduleModal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeModal()">&times;</span>
+      <h2 id="modalTitle"></h2>
+      <p id="modalDescription"></p>
+    </div>
+  </div>
+
+  <script src="education.js"></script>
+</body>
+</html>
