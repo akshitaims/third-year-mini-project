@@ -1,0 +1,160 @@
+body {
+  font-family: 'Montserrat', sans-serif;
+  margin: 0;
+  background: linear-gradient(135deg, #1B4965, #247BA0);
+  color: white;
+  overflow-x: hidden;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 50px;
+  background: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
+}
+
+.nav-links {
+  display: flex;
+  gap: 25px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.nav-links a:hover, .active {
+  color: #00f2ff;
+}
+
+.contact-section {
+  text-align: center;
+  padding: 80px 20px;
+}
+
+.contact-section h1 {
+  font-size: 40px;
+  margin-bottom: 10px;
+}
+
+.contact-section p {
+  font-size: 18px;
+  color: #d9e6f2;
+  margin-bottom: 40px;
+}
+
+.contact-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.contact-info, .contact-form {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 30px;
+  border-radius: 20px;
+  width: 350px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  animation: fadeInUp 1s ease;
+}
+
+.icon {
+  width: 20px;
+  margin-right: 10px;
+  vertical-align: middle;
+}
+
+.social-icons {
+  margin-top: 20px;
+}
+
+.social-icons img {
+  width: 35px;
+  margin: 0 8px;
+  transition: 0.3s;
+}
+
+.social-icons img:hover {
+  transform: scale(1.2);
+}
+
+.form-group {
+  text-align: left;
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  transition: 0.3s;
+}
+
+input:focus, textarea:focus {
+  background: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 0 10px #00f2ff;
+}
+
+.btn {
+  background: #00f2ff;
+  color: #001f3f;
+  padding: 12px 40px;
+  border: none;
+  font-weight: 700;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: 0.3s;
+  font-size: 16px;
+  width: 100%;
+}
+
+.btn:hover {
+  background: #00aaff;
+  transform: scale(1.05);
+}
+
+#formMessage {
+  margin-top: 15px;
+  font-weight: 600;
+  color: #00ffae;
+}
+
+.map-container {
+  margin-top: 50px;
+  border-radius: 20px;
+  overflow: hidden;
+  animation: fadeIn 2s ease;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.4);
+  margin-top: 40px;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}

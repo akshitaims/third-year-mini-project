@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Involved | DisasterPrep</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(135deg, #004e92, #000428);
+            color: white;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        header {
+            padding: 20px;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        section {
+            margin-top: 50px;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 40px;
+            margin: 0 auto;
+            width: 80%;
+            max-width: 600px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+
+        input, textarea, button {
+            width: 90%;
+            padding: 12px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+
+        input, textarea {
+            background: rgba(255, 255, 255, 0.9);
+        }
+
+        button {
+            background-color: #ffd700;
+            color: #000428;
+            font-weight: 700;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background-color: #fff;
+            color: #004e92;
+        }
+
+        footer {
+            margin-top: 40px;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <header>🌍 Get Involved with DisasterPrep</header>
+
+    <section>
+        <div class="container">
+            <h2>Join Our Mission</h2>
+            <p>Fill out this form to volunteer, contribute, or collaborate with us.</p>
+            <form id="involveForm">
+                <input type="text" placeholder="Full Name" required><br>
+                <input type="email" placeholder="Email Address" required><br>
+                <textarea rows="4" placeholder="How would you like to help?" required></textarea><br>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2025 DisasterPrep | Designed by Akshita Srivastava</p>
+    </footer>
+
+    <script>
+        document.getElementById("involveForm").addEventListener("submit", function(e){
+            e.preventDefault();
+            alert("Thank you for joining our mission! We will contact you soon.");
+            window.location.href = "index.html"; // Redirect back to home page
+        });
+    </script>
+</body>
+</html>

@@ -10,24 +10,124 @@
 
     <!-- CSS -->
     <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* Additional CSS Enhancements */
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            background-color: #f4f7f9;
+            color: #333;
+        }
+
+        .stats {
+            background: linear-gradient(135deg, #004e92, #000428);
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+        }
+        .stats h2 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+        }
+        .stats-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+        .stat-box {
+            background: rgba(255,255,255,0.1);
+            padding: 25px 40px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+        }
+        .stat-box:hover {
+            transform: translateY(-5px);
+        }
+        .stat-box h3 {
+            font-size: 2.2rem;
+            color: #ffd700;
+        }
+        .stat-box p {
+            margin-top: 10px;
+            font-size: 1.1rem;
+        }
+
+        .testimonial {
+            padding: 60px 20px;
+            text-align: center;
+            background-color: #fff;
+        }
+        .testimonial h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+        .testimonial p {
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.6;
+            color: #555;
+        }
+        .testimonial .author {
+            margin-top: 15px;
+            font-weight: 600;
+            color: #004e92;
+        }
+
+        .cta {
+            background: linear-gradient(135deg, #ff416c, #ff4b2b);
+            color: white;
+            text-align: center;
+            padding: 50px 20px;
+        }
+        .cta h2 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+        .cta a {
+            background-color: #fff;
+            color: #ff4b2b;
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        .cta a:hover {
+            background-color: #ffe5e5;
+        }
+
+        footer {
+            background-color: #000428;
+            color: white;
+            text-align: center;
+            padding: 15px 10px;
+            font-size: 0.9rem;
+        }
+    </style>
 </head>
 <body>
     <!-- Header / Navbar -->
     <header>
-        <nav class="navbar">
-            <div class="logo">🌍 DisasterPrep</div>
-            <ul class="nav-links">
-                <li><a href="index.html" class="active">Home</a></li>
-                <li><a href="education.html">Learn</a></li>
-                <li><a href="drills.html">Virtual Drills</a></li>
-                <li><a href="alerts.html">Alerts</a></li>
-                <li><a href="contacts.html">Contacts</a></li>
-                <li><a href="about.html">About</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <!-- Hero Section -->
+    <nav class="navbar">
+        <div class="logo">
+            <img src="https://cdn-icons-png.flaticon.com/512/4821/4821360.png" alt="DisasterPrep Logo" class="logo-img">
+            <span>DisasterPrep</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="education.html">Learn</a></li>
+            <li><a href="drills.html">Virtual Drills</a></li>
+            <li><a href="alerts.html">Alerts</a></li>
+            <li><a href="contacts.html">Contacts</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="login.html" class="login-btn">Login</a></li>
+        </ul>
+    </nav>
+</header>
+ <!-- Hero Section -->
     <section class="hero">
         <div class="overlay"></div>
         <div class="hero-content">
@@ -66,6 +166,38 @@
             </div>
         </div>
     </section>
+
+    <!-- Statistics Section -->
+    <section class="stats">
+        <h2>Why Disaster Preparedness Matters</h2>
+        <div class="stats-container">
+            <div class="stat-box">
+                <h3>78%</h3>
+                <p>of schools in India lack a disaster response plan.</p>
+            </div>
+            <div class="stat-box">
+                <h3>10M+</h3>
+                <p>students affected by natural disasters annually.</p>
+            </div>
+            <div class="stat-box">
+                <h3>24/7</h3>
+                <p>active alerts through DisasterPrep’s platform.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonial Section -->
+    <section class="testimonial">
+        <h2>What Educators Say</h2>
+        <p>“DisasterPrep has transformed the way our students learn about disaster safety. The interactive drills make learning both engaging and practical. Now our school feels truly prepared for emergencies.”</p>
+        <div class="author">— Principal, Sunrise Public School</div>
+    </section>
+
+    <!-- Call-to-Action Section -->
+    <section class="cta">
+        <h2>Join the Mission to Build Safer Campuses</h2>
+        <a href="getinvolved.html">Get Involved</a>
+ </section>
 
     <!-- Footer -->
     <footer>

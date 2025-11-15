@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Virtual Drills | DisasterPrep</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #004e92, #000428);
+      color: white;
+      overflow-x: hidden;
+    }
+
+    header {
+      background: rgba(0, 0, 0, 0.3);
+      padding: 15px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    header .logo {
+      font-weight: 700;
+      font-size: 1.5rem;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: white;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover, nav a.active {
+      color: #ffd700;
+    }
+
+    /* Hero Section */
+    .hero {
+      text-align: center;
+      padding: 100px 20px 60px;
+      background: url('https://cdn.pixabay.com/photo/2016/03/27/21/16/firefighter-1281248_1280.jpg') center/cover no-repeat;
+      position: relative;
+      height: 80vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 800px;
+      color: white;
+      text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    .hero-content h1 {
+      font-size: 2.8rem;
+      margin-bottom: 20px;
+    }
+
+    .hero-content p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+
+    /* Drills Section */
+    .drills-section {
+      padding: 60px 20px;
+      background: #f5f7fa;
+      color: #333;
+      text-align: center;
+    }
+
+    .drills-section h2 {
+      font-size: 2.2rem;
+      color: #004e92;
+      margin-bottom: 20px;
+    }
+
+    .drill-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+      padding: 0 20px;
+    }
+
+    .drill-card {
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+      padding: 25px;
+      transition: all 0.4s ease;
+      transform: translateY(0);
+      animation: slideUp 1.5s ease both;
+    }
+
+    .drill-card:hover {
+      transform: translateY(-10px) scale(1.03);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    }
+
+    .drill-card img {
+      width: 80px;
+      height: 80px;
+      margin-bottom: 15px;
+      transition: transform 0.4s;
+    }
+
+    .drill-card:hover img {
+      transform: rotate(10deg) scale(1.1);
+    }
+
+    .simulate-btn {
+      margin-top: 20px;
+      background: linear-gradient(135deg, #ff416c, #ff4b2b);
+      border: none;
+      color: white;
+      padding: 10px 25px;
+      border-radius: 25px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    .simulate-btn:hover {
+      background: #ffd700;
+      color: #000;
+    }
+
+    /* Modal Simulation */
+    .simulation-modal {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.85);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 999;
+      overflow: hidden;
+    }
+
+    .modal-content {
+      background: #fff;
+      color: #333;
+      border-radius: 20px;
+      padding: 30px;
+      width: 80%;
+      max-width: 600px;
+      text-align: center;
+      animation: zoomIn 0.5s ease;
+      position: relative;
+      z-index: 10;
+    }
+
+    #countdown {
+      font-size: 2rem;
+      color: #004e92;
+      font-weight: 700;
+      margin-bottom: 15px;
+    }
+
+    #simulationSteps {
+      font-size: 1rem;
+      color: #444;
+      margin-top: 15px;
+      min-height: 70px;
+      line-height: 1.6;
+    }
+
+    .close-btn {
+      background: #004e92;
+      color: white;
+      border: none;
+      padding: 10px 22px;
+      border-radius: 20px;
+      margin-top: 25px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    .close-btn:hover {
+      background: #ff4b2b;
+    }
+
+    /* Animations */
+    @keyframes zoomIn {
+      0% { transform: scale(0.5); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    @keyframes shake {
+      0%, 100% { transform: translate(0, 0); }
+      25% { transform: translate(-10px, 0); }
+      50% { transform: translate(10px, 0); }
+      75% { transform: translate(-10px, 0); }
+    }
+
+    .earthquake-effect { animation: shake 0.3s infinite; }
+    .fire-effect { background: radial-gradient(circle, rgba(255, 80, 0, 0.5), rgba(0, 0, 0, 0.8)); }
+    .flood-effect { background: linear-gradient(180deg, #0077b6 40%, #023e8a); animation: wave 2s infinite alternate; }
+
+    @keyframes wave {
+      0% { background-position: 0 0; }
+      100% { background-position: 100px 100px; }
+    }
+
+    .complete {
+      animation: glow 1s infinite alternate;
+    }
+
+    @keyframes glow {
+      0% { text-shadow: 0 0 10px #00ff88; }
+      100% { text-shadow: 0 0 25px #00ff88; }
+    }
+
+    footer {
+      background-color: #000428;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      font-size: 0.9rem;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="logo">🌍 DisasterPrep</div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="education.html">Learn</a></li>
+        <li><a href="drills.html" class="active">Virtual Drills</a></li>
+        <li><a href="alerts.html">Alerts</a></li>
+        <li><a href="contacts.html">Contacts</a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Virtual Disaster Drills</h1>
+      <p>Experience step-by-step emergency simulations — learn how to react, stay calm, and make every second count.</p>
+    </div>
+  </section>
+
+  <section class="drills-section">
+    <h2>Choose a Drill to Begin Simulation</h2>
+    <div class="drill-container">
+      <div class="drill-card">
+        <img src="https://cdn-icons-png.flaticon.com/512/3004/3004364.png" alt="Earthquake">
+        <h3>Earthquake Drill</h3>
+        <p>Practice the “Drop, Cover, Hold On” technique and safe evacuation steps during an earthquake simulation.</p>
+        <button class="simulate-btn" onclick="startSimulation('Earthquake Drill')">Start Drill</button>
+      </div>
+
+      <div class="drill-card">
+        <img src="https://cdn-icons-png.flaticon.com/512/820/820554.png" alt="Fire">
+        <h3>Fire Drill</h3>
+        <p>Understand how to exit safely, avoid smoke inhalation, and use extinguishers effectively.</p>
+        <button class="simulate-btn" onclick="startSimulation('Fire Drill')">Start Drill</button>
+      </div>
+
+      <div class="drill-card">
+        <img src="https://cdn-icons-png.flaticon.com/512/1536/1536198.png" alt="Flood">
+        <h3>Flood Drill</h3>
+        <p>Learn how to move to higher ground, disconnect power sources, and remain calm during floods.</p>
+        <button class="simulate-btn" onclick="startSimulation('Flood Drill')">Start Drill</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Simulation Modal -->
+  <div class="simulation-modal" id="simulationModal">
+    <div class="modal-content">
+      <h2 id="drillTitle"></h2>
+      <div id="countdown">Starting in 3...</div>
+      <div id="simulationSteps"></div>
+      <button class="close-btn" onclick="closeSimulation()">End Drill</button>
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2025 DisasterPrep | Designed by Akshita Srivastava | IMS Engineering College</p>
+  </footer>
+
+  <!-- SOUND EFFECTS -->
+  <audio id="alarmSound" src="https://assets.mixkit.co/sfx/preview/mixkit-alarm-digital-clock-beep-989.mp3"></audio>
+  <audio id="fireSound" src="https://assets.mixkit.co/sfx/preview/mixkit-fire-burning-crackling-1345.mp3"></audio>
+  <audio id="floodSound" src="https://assets.mixkit.co/sfx/preview/mixkit-sea-waves-ambience-1195.mp3"></audio>
+  <audio id="quakeSound" src="https://assets.mixkit.co/sfx/preview/mixkit-rumbling-earthquake-2274.mp3"></audio>
+
+  <script>
+    const modal = document.getElementById("simulationModal");
+    const drillTitle = document.getElementById("drillTitle");
+    const countdown = document.getElementById("countdown");
+    const steps = document.getElementById("simulationSteps");
+
+    const alarmSound = document.getElementById("alarmSound");
+    const fireSound = document.getElementById("fireSound");
+    const floodSound = document.getElementById("floodSound");
+    const quakeSound = document.getElementById("quakeSound");
+
+    function startSimulation(type) {
+      modal.style.display = "flex";
+      document.body.classList.remove("earthquake-effect", "fire-effect", "flood-effect");
+      drillTitle.innerText = type;
+      steps.innerText = "";
+      let count = 3;
+      alarmSound.play();
+
+      const timer = setInterval(() => {
+        countdown.innerText = "Starting in " + count + "...";
+        count--;
+        if (count < 0) {
+          clearInterval(timer);
+          countdown.innerText = "Drill In Progress ⏱️";
+          playSimulation(type);
+        }
+      }, 1000);
+    }
+
+    function playSimulation(type) {
+      const sequence = {
+        "Earthquake Drill": [
+          "⚡ The ground starts shaking — stay calm!",
+          "🏠 Drop to your knees and take cover under a desk.",
+          "✋ Hold on until shaking stops.",
+          "🚶 Evacuate calmly to an open area once it’s safe.",
+          "✅ Drill Complete — You stayed safe!"
+        ],
+        "Fire Drill": [
+          "🔥 Fire alarm rings — don’t panic!",
+          "😷 Cover your mouth with cloth and stay low.",
+          "🚪 Head to the nearest exit — don’t use elevators.",
+          "🚒 Gather at assembly point outside the building.",
+          "✅ Drill Complete — You acted swiftly and safely!"
+        ],
+        "Flood Drill": [
+          "🌧️ Water level rising — stay alert!",
+          "🔌 Turn off electrical connections.",
+          "📦 Move valuables and yourself to higher ground.",
+          "☎️ Stay tuned to official alerts for updates.",
+          "✅ Drill Complete — You stayed calm and protected yourself!"
+        ]
+      };
+
+      let index = 0;
+      steps.innerText = sequence[type][index];
+
+      if (type === "Earthquake Drill") {
+        document.body.classList.add("earthquake-effect");
+        quakeSound.play();
+      } else if (type === "Fire Drill") {
+        document.body.classList.add("fire-effect");
+        fireSound.play();
+      } else if (type === "Flood Drill") {
+        document.body.classList.add("flood-effect");
+        floodSound.play();
+      }
+
+      const showStep = setInterval(() => {
+        index++;
+        if (index < sequence[type].length) {
+          steps.innerText = sequence[type][index];
+        } else {
+          clearInterval(showStep);
+          document.body.classList.remove("earthquake-effect", "fire-effect", "flood-effect");
+          countdown.innerText = "🎉 Drill Completed";
+          countdown.classList.add("complete");
+        }
+      }, 3000);
+    }
+
+    function closeSimulation() {
+      modal.style.display = "none";
+      document.body.classList.remove("earthquake-effect", "fire-effect", "flood-effect");
+      countdown.classList.remove("complete");
+      alarmSound.pause(); fireSound.pause(); floodSound.pause(); quakeSound.pause();
+      alarmSound.currentTime = fireSound.currentTime = floodSound.currentTime = quakeSound.currentTime = 0;
+    }
+
+    window.onclick = (e) => {
+      if (e.target === modal) closeSimulation();
+    };
+  </script>
+</body>
+</html>

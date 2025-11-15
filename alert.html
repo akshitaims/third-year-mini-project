@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Disaster Alerts & Communication</title>
+  <link rel="stylesheet" href="css/alerts.css" />
+</head>
+<body>
+  <header>
+    <h1>Disaster Alerts & Communication</h1>
+    <p>Stay informed and connected during emergencies.</p>
+    <a href="index.html" class="back-btn">← Back to Home</a>
+  </header>
+
+  <main>
+    <!-- Live Alerts Section -->
+    <section class="alerts-section">
+      <h2>🔔 Live Disaster Alerts</h2>
+      <div id="alertList" class="alert-list">
+        <!-- Alerts will appear dynamically -->
+      </div>
+      <button class="refresh-btn" onclick="fetchAlerts()">Refresh Alerts</button>
+    </section>
+
+    <!-- Admin Alert Form -->
+    <section class="admin-section">
+      <h2>📢 Post a New Alert (Admin)</h2>
+      <form id="alertForm">
+        <input type="text" id="alertTitle" placeholder="Alert Title" required>
+        <textarea id="alertMessage" placeholder="Alert Message..." required></textarea>
+        <button type="submit" class="post-btn">Post Alert</button>
+      </form>
+    </section>
+
+    <!-- Communication Form -->
+    <section class="contact-section">
+      <h2>📨 Emergency Communication</h2>
+      <form id="messageForm">
+        <input type="text" id="userName" placeholder="Your Name" required>
+        <input type="email" id="userEmail" placeholder="Your Email" required>
+        <textarea id="userMessage" placeholder="Your Emergency Message..." required></textarea>
+        <button type="submit" class="send-btn">Send Message</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 DisasterPrep | All Rights Reserved</p>
+  </footer>
+
+  <script src="js/alerts.js"></script>
+</body>
+</html>

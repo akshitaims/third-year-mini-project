@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us | Disaster Preparedness System</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="contacts.css">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header>
+    <nav class="navbar">
+      <div class="logo">🌍 DisasterPrep</div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="education.html">Learn</a></li>
+        <li><a href="drills.html">Virtual Drills</a></li>
+        <li><a href="alerts.html">Alerts</a></li>
+        <li><a href="contacts.html" class="active">Contacts</a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Contact Section -->
+  <section class="contact-section">
+    <h1>Get in Touch</h1>
+    <p>We’d love to hear from you! Whether you have a question, feedback, or want to collaborate, reach out anytime.</p>
+
+    <div class="contact-container">
+      <!-- Contact Info -->
+      <div class="contact-info">
+        <h2>Contact Information</h2>
+        <p><img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" class="icon"> disasterprep@gmail.com</p>
+        <p><img src="https://cdn-icons-png.flaticon.com/512/597/597177.png" class="icon"> +91 8947861787</p>
+        <p><img src="https://cdn-icons-png.flaticon.com/512/535/535239.png" class="icon"> IMS Engineering College, Ghaziabad, India</p>
+        <div class="social-icons">
+          <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/1384/1384063.png" alt="Instagram"></a>
+          <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook"></a>
+          <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="LinkedIn"></a>
+        </div>
+      </div>
+
+      <!-- Contact Form -->
+      <div class="contact-form">
+        <form id="contactForm">
+          <div class="form-group">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" placeholder="Enter your name" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="Enter your email" required>
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" rows="5" placeholder="Write your message here..." required></textarea>
+          </div>
+          <button type="submit" class="btn">Send Message</button>
+          <p id="formMessage"></p>
+        </form>
+      </div>
+    </div>
+
+    <!-- Map Section -->
+    <div class="map-container">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3500.1419813223183!2d77.44276337549365!3d28.677389682305058!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cf12c05a3fdff%3A0x249db10a0a3ce73e!2sIMS%20Engineering%20College!5e0!3m2!1sen!2sin!4v1730724897998"
+        width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 DisasterPrep | Designed by Akshita Srivastava | IMS Engineering College</p>
+  </footer>
+
+  <script src="contacts.js"></script>
+</body>
+</html>

@@ -1,0 +1,226 @@
+/* ======== auth.css - Clean & Fixed ======== */
+
+/* --- Reset-ish --- */
+* { box-sizing: border-box; }
+html, body {
+    height: 100%;
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+}
+
+/* --- Background / Container --- */
+.auth-container {
+    position: relative;
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url('https://images.unsplash.com/photo-1521790361543-f645cf042ec4?auto=format&fit=crop&w=1600&q=80') no-repeat center center / cover;
+    overflow: auto; /* allow scroll on very small screens */
+}
+
+/* dark overlay for contrast */
+.auth-container .overlay {
+    position: absolute;
+    inset: 0; /* top:0;right:0;bottom:0;left:0; */
+    background: rgba(8, 15, 25, 0.55);
+    backdrop-filter: blur(3px);
+    z-index: 1;
+}
+
+/* --- Card (glassmorphism) --- */
+.auth-card {
+    position: relative;
+    z-index: 2; /* above overlay */
+    width: 92%;
+    max-width: 440px;
+    margin: 24px;
+    padding: 36px;
+    border-radius: 16px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.10), rgba(255,255,255,0.06));
+    box-shadow: 0 12px 30px rgba(0,0,0,0.45);
+    backdrop-filter: blur(12px) saturate(1.1);
+    color: #ffffff;
+    text-align: center;
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+    will-change: transform;
+}
+
+/* slight lift on hover for desktop */
+@media (hover: hover) {
+    .auth-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 20px 45px rgba(0,0,0,0.55);
+    }
+}
+
+/* --- Logo / Header --- */
+.logo h1 {
+    margin: 0 0 6px 0;
+    font-size: 1.9rem;
+    line-height: 1;
+    font-weight: 700;
+    letter-spacing: -0.2px;
+    color: #ffffff;
+    display: inline-block;
+}
+
+.logo span {
+    color: #7bf08a; /* green accent */
+}
+
+.tagline {
+    margin: 6px 0 28px 0;
+    color: rgba(230,230,230,0.9);
+    font-size: 0.95rem;
+}
+
+/* --- Form layout --- */
+.form-content {
+    width: 100%;
+}
+
+/* make each input group handle relative positioning for toggle icons */
+.input-group {
+    margin-bottom: 18px;
+    text-align: left;
+    position: relative; /* important for password toggle */
+}
+
+/* label */
+.input-group label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 600;
+    font-size: 0.92rem;
+    color: rgba(225,225,225,0.95);
+}
+
+/* input base */
+.input-group input {
+    width: 100%;
+    padding: 12px 14px;
+    padding-right: 44px; /* leave space for toggle icon */
+    border-radius: 10px;
+    border: 1px solid rgba(255,255,255,0.12);
+    background: rgba(255,255,255,0.05);
+    color: #fff;
+    font-size: 0.95rem;
+    outline: none;
+    transition: background 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+}
+
+/* placeholder color */
+.input-group input::placeholder {
+    color: rgba(220,220,220,0.55);
+}
+
+/* focus state */
+.input-group input:focus {
+    background: rgba(255,255,255,0.08);
+    border-color: rgba(255,255,255,0.28);
+    box-shadow: 0 6px 18px rgba(26,115,232,0.08);
+}
+
+/* --- Password toggle (positioned inside input-group) --- */
+.toggle-password {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.05rem;
+    line-height: 1;
+    cursor: pointer;
+    user-select: none;
+    opacity: 0.95;
+    transition: transform 0.15s ease, opacity 0.12s ease;
+}
+
+/* hover/tap feedback */
+.toggle-password:hover { transform: translateY(-50%) scale(1.12); }
+
+/* --- Button --- */
+.btn {
+    display: inline-block;
+    width: 100%;
+    padding: 12px 14px;
+    margin-top: 4px;
+    border-radius: 10px;
+    border: none;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    color: #fff;
+    background: linear-gradient(135deg,#1a73e8 0%, #34a853 100%);
+    box-shadow: 0 10px 30px rgba(26,115,232,0.14);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn:active { transform: translateY(1px); }
+.btn:hover { box-shadow: 0 14px 40px rgba(26,115,232,0.18); }
+
+/* subtle focus outline for accessibility */
+.btn:focus, .input-group input:focus { outline: 3px solid rgba(26,115,232,0.12); outline-offset: 3px; }
+
+/* --- Switch link --- */
+.switch-link {
+    margin-top: 16px;
+    font-size: 0.92rem;
+    color: rgba(230,230,230,0.9);
+}
+
+.switch-link a {
+    color: #9effa8; /* lighter green */
+    font-weight: 700;
+    text-decoration: none;
+    margin-left: 6px;
+}
+
+.switch-link a:hover { text-decoration: underline; }
+
+/* --- Small helper text / error (for future use) --- */
+.helper-text {
+    font-size: 0.85rem;
+    color: rgba(255,200,200,0.95);
+    margin-top: 8px;
+}
+
+/* --- Entrance animation --- */
+.animate-fade {
+    animation: fadeInUp 0.7s cubic-bezier(.2,.9,.26,1) both;
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(22px) scale(0.995); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* --- Responsive tweaks --- */
+@media (max-width: 520px) {
+    .auth-card {
+        padding: 26px 18px;
+        max-width: 420px;
+        margin: 16px;
+        border-radius: 14px;
+    }
+
+    .logo h1 { font-size: 1.6rem; }
+    .tagline { font-size: 0.88rem; margin-bottom: 20px; }
+
+    .input-group input { font-size: 0.95rem; padding: 12px; padding-right: 44px; }
+    .toggle-password { right: 10px; font-size: 1rem; }
+    .btn { padding: 11px; font-size: 0.98rem; }
+}
+
+/* very small screens: allow vertical scroll and reduce layout heaviness */
+@media (max-height: 520px) {
+    .auth-container { align-items: flex-start; padding-top: 28px; padding-bottom: 28px; }
+}
+
+/* --- Accessibility color-fallback for users with reduced motion --- */
+@media (prefers-reduced-motion: reduce) {
+    .auth-card, .animate-fade, .btn, .toggle-password { transition: none; animation: none; }
+}
