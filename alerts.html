@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Disaster Alerts</title>
+  <link rel="stylesheet" href="alerts.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>🌐 Disaster Alerts</h1>
+
+    <form id="alertForm" class="alert-form">
+      <input type="text" id="title" placeholder="Alert Title" required />
+      <textarea id="description" placeholder="Description" required></textarea>
+      <input type="date" id="date" required />
+      <button type="submit">Add Alert</button>
+    </form>
+
+    <h2>Active Alerts</h2>
+    <div id="alertList" class="alert-list">
+      <p class="empty-text">No alerts yet — add one above!</p>
+    </div>
+  </div>
+
+  <script src="alerts.js"></script>
+</body>
+</html>

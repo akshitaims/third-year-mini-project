@@ -1,0 +1,100 @@
+:root {
+  --earthquake: #e96a6a;
+  --flood: #4b9eea;
+  --fire: #f69a3e;
+  --cyclone: #7a6ff5;
+  --text: #1f2937;
+  --bg: #f9fafc;
+  --card-bg: #ffffff;
+  --shadow: 0 4px 14px rgba(0,0,0,0.06);
+  --radius: 14px;
+  font-family: "Poppins", system-ui, sans-serif;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+.hero {
+  text-align: center;
+  padding: 60px 20px;
+  background: linear-gradient(135deg, #4b9eea, #7a6ff5);
+  color: #fff;
+  border-radius: 0 0 40px 40px;
+  box-shadow: var(--shadow);
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  margin: 0;
+}
+.hero h1 span {
+  color: #fff176;
+}
+.hero p {
+  font-size: 1.1rem;
+  margin-top: 10px;
+}
+
+.content {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.intro h2 {
+  text-align: center;
+  color: #333;
+}
+
+.intro p {
+  background: #fff;
+  padding: 20px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  margin-top: 15px;
+}
+
+.tips h2 {
+  text-align: center;
+  margin: 50px 0 20px;
+  color: #111;
+}
+
+.tip-box {
+  background: var(--card-bg);
+  padding: 20px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  margin-bottom: 25px;
+  border-left: 8px solid transparent;
+}
+
+.tip-box h3 {
+  margin-top: 0;
+  font-size: 1.2rem;
+}
+
+.tip-box ul {
+  list-style-type: "✅ ";
+  margin: 10px 0 0 20px;
+  padding: 0;
+}
+
+/* Themed borders */
+.earthquake { border-color: var(--earthquake); }
+.flood { border-color: var(--flood); }
+.fire { border-color: var(--fire); }
+.cyclone { border-color: var(--cyclone); }
+
+.footer {
+  text-align: center;
+  padding: 20px;
+  background: #111827;
+  color: #fff;
+  margin-top: 50px;
+  border-radius: 20px 20px 0 0;
+}
